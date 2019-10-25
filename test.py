@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 import tensorflow as tf
 import neuralgym as ng
-
+import os
 from inpaint_model import InpaintCAModel
 
 
@@ -17,10 +17,10 @@ parser.add_argument('--output', default='output.png', type=str,
                     help='Where to write output.')
 parser.add_argument('--checkpoint_dir', default='', type=str,
                     help='The directory of tensorflow checkpoint.')
-
+os.environ['CUDA_VISIBLE_DEVICES']='0'
 
 if __name__ == "__main__":
-    ng.get_gpus(1)
+    #wny ng.get_gpus(1)
     args = parser.parse_args()
 
     model = InpaintCAModel()
